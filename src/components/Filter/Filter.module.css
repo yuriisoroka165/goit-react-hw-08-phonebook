@@ -1,0 +1,25 @@
+.filter__field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 40px;
+}
+
+.filter__field_label {
+    font-weight: 700;
+    color: var(--global-black-color);
+}
+
+.filter__field_input {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 350px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: var(--input-box-shadow);
+}
+
+.filter__field_input:focus {
+    outline: 1px solid var(--global-green-color);
+}

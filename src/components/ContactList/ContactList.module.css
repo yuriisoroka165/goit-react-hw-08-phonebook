@@ -1,0 +1,7 @@
+.contactList__list {
+    width: 350px;
+    list-style: none;
+    margin-left: 10px;
+    padding: 0;
+    color: var(--global-black-color);
+}

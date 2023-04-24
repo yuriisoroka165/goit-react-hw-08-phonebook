@@ -1,0 +1,43 @@
+.contactsListItem__item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.contactsListItem__item_circle {
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: var(--global-green-color);
+    border-radius: 50%;
+}
+
+.contactsListItem__item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.contactsListItem__item_name {
+    font-weight: 500;
+    color: var(--global-black-color);
+}
+
+.contactsListItem__item_number {
+    margin-left: 5px;
+}
+
+.contactsListItem__button {
+    width: 70px;
+    height: 30px;
+    margin-left: auto;
+    background-color: var(--global-white-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: var(--input-box-shadow);
+    cursor: pointer;
+}
+
+.contactsListItem__button:active {
+    background-color: var(--global-green-color);
+    color: var(--global-white-color);
+}

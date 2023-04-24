@@ -1,0 +1,47 @@
+.contactForm__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.contactForm__field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contactForm__field_label {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--global-black-color);
+}
+
+.contactForm__input {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 350px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: var(--input-box-shadow);
+}
+
+.contactForm__input:focus {
+    outline: 1px solid var(--global-green-color);
+}
+
+.contactForm__submit_button {
+    width: 100px;
+    height: 30px;
+    background-color: var(--global-white-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: var(--input-box-shadow);
+    cursor: pointer;
+}
+
+.contactForm__submit-button:active {
+    background-color: var(--global-green-color);
+    color: var(--global-white-color);
+}
