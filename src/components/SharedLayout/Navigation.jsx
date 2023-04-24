@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { Container, Header, Link } from "./SharedLayout.styled";
 
-export const SharedLayout = () => {
+export const Navigation = () => {
     return (
         <>
             <Header>
