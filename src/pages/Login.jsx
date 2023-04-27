@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { login } from "../redux/auth/authOperations";
 import {
     LoginPageHeader,
     LoginPageContainer,
@@ -8,16 +12,40 @@ import {
 } from "./Login.styled";
 
 export default function Login() {
+    const dispatch = useDispatch();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        dispatch(login({ email, password }));
+        setEmail("");
+        setPassword("");
+    }
+
+    function handleChange({ target: { name, value } }) {
+        switch (name) {
+            case "email":
+                return setEmail(value);
+            case "password":
+                return setPassword(value);
+            default:
+                return;
+        }
+    }
+
     return (
         <LoginPageContainer>
             <LoginPageHeader>Login page</LoginPageHeader>
-            <LoginForm>
+            <LoginForm onSubmit={handleSubmit} autoComplete="off">
                 <LoginFormLabel htmlFor="email">
                     E-mail:
                     <LoginFormInput
                         id="email"
                         type="text"
                         name="email"
+                        value={email}
+                        onChange={handleChange}
                         required
                     />
                 </LoginFormLabel>
@@ -27,6 +55,8 @@ export default function Login() {
                         id="password"
                         type="password"
                         name="password"
+                        value={password}
+                        onChange={handleChange}
                         required
                     />
                 </LoginFormLabel>
