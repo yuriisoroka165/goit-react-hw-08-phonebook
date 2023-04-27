@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchContacts } from "redux/operations";
-import { selectError, selectIsLoading } from "redux/selectors";
+import { fetchContacts } from "redux/contacts/operations";
+import { selectError, selectIsLoading } from "redux/contacts/selectors";
 
 import ContactForm from "../components/ContactForm/ContactForm";
 import Filter from "../components/Filter/Filter";
 import ContactList from "../components/ContactList/ContactList";
-import css from "./App.module.css";
+import { Container } from "./Contacts.styled";
 
 export default function App() {
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export default function App() {
     }, [dispatch]);
 
     return (
-        <div className={css.app__container}>
+        <Container>
             <h1>Phonebok</h1>
             <ContactForm />
             <h2>Contacts</h2>
@@ -27,6 +27,6 @@ export default function App() {
             {isLoading && !error && <h3>Request in progress...</h3>}
             <ContactList />
             {error && <h3>{error}</h3>}
-        </div>
+        </Container>
     );
 }
