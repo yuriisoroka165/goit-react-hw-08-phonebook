@@ -6,6 +6,7 @@ import { AuthNav } from "../AuthNav/AuthNav";
 import { UserMenu } from "components/UserMenu/UserMenu";
 import { selectIsAuthorized } from "../../redux/auth/authSelectors";
 import { Container, Header, Link, Loader } from "./Navigation.styled";
+import { AppFooter } from "components/AppFooter/AppFooter";
 
 export const Navigation = () => {
     const isAuthorized = useSelector(selectIsAuthorized);
@@ -25,6 +26,7 @@ export const Navigation = () => {
                     </Suspense>
                 </main>
             </Container>
+            <AppFooter />
         </>
     );
 };

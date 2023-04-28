@@ -12,7 +12,7 @@ import { selectIsAuthorized } from "../../redux/auth/authSelectors";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Filter from "../../components/Filter/Filter";
 import ContactList from "../../components/ContactList/ContactList";
-import { Container, NotAuthContainer } from "./Contacts.styled";
+import { Container, ConatctFormConatiner, NotAuthContainer } from "./Contacts.styled";
 import { iconsSize } from "../../constants/iconsSize";
 
 export default function App() {
@@ -29,13 +29,17 @@ export default function App() {
         <>
             {isAuthorized ? (
                 <Container>
-                    <h1>Phonebok</h1>
-                    <ContactForm />
-                    <h2>Contacts</h2>
-                    <Filter />
-                    {isLoading && !error && <h3>Request in progress...</h3>}
-                    <ContactList />
-                    {error && <h3>{error}</h3>}
+                    <ConatctFormConatiner>
+                        <h2>Phonebok</h2>
+                        <ContactForm />
+                    </ConatctFormConatiner>
+                    <div>
+                        <h2>Contacts</h2>
+                        <Filter />
+                        {isLoading && !error && <h3>Request in progress...</h3>}
+                        <ContactList />
+                        {error && <h3>{error}</h3>}
+                    </div>
                 </Container>
             ) : (
                 <NotAuthContainer>

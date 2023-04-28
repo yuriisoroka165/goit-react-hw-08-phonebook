@@ -15,11 +15,12 @@ export default function Filter() {
                 htmlFor="filter-field"
                 className={`${css.filter__field} ${css.filter__field_label}`}
             >
-                Find contacts by name
+                Find contacts by name:
                 <input
                     id="filter-field"
                     className={css.filter__field_input}
                     type="text"
+                    placeholder="Enter search query"
                     onChange={contactFilter}
                 />
             </label>

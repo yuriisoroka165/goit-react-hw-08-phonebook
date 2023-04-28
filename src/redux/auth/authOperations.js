@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Notify } from "notiflix";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
@@ -18,8 +19,10 @@ export const registration = createAsyncThunk(
         try {
             const { data } = await axios.post("users/signup", credentials);
             tokenHeaderControl.set(data.token);
+            Notify.success("Registration successful.");
             return data;
         } catch (error) {
+            Notify.failure(`Registration error: ${error.message}`);
             return thunkAPI.rejectWithValue(error.message);
         }
     }
@@ -31,8 +34,10 @@ export const login = createAsyncThunk(
         try {
             const { data } = await axios.post("users/login", credentials);
             tokenHeaderControl.set(data.token);
+            Notify.success("Login successful.");
             return data;
         } catch (error) {
+            Notify.failure(`Login error: ${error.message}`);
             return thunkAPI.rejectWithValue(error.message);
         }
     }
@@ -42,8 +47,10 @@ export const logout = createAsyncThunk("auth/logout", async thunkAPI => {
     try {
         const { data } = await axios.post("users/logout");
         tokenHeaderControl.unset();
+        Notify.warning("Logout successful.");
         return data;
     } catch (error) {
+        Notify.failure(`Logout error: ${error.message}`);
         return thunkAPI.rejectWithValue(error.message);
     }
 });

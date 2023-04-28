@@ -40,7 +40,7 @@ export default function Registration() {
 
     return (
         <RegistrationPageContainer>
-            <RegistrationPageHeader>Registration page</RegistrationPageHeader>
+            <RegistrationPageHeader>Registration</RegistrationPageHeader>
             <RegistrationForm onSubmit={handleSubmit} autoComplete="off">
                 <RegistrationFormLabel htmlFor="name">
                     Name:
@@ -50,6 +50,7 @@ export default function Registration() {
                         name="name"
                         value={name}
                         onChange={handleChange}
+                        placeholder="Your name"
                         required
                     />
                 </RegistrationFormLabel>
@@ -61,6 +62,7 @@ export default function Registration() {
                         name="email"
                         value={email}
                         onChange={handleChange}
+                        placeholder="Your e-mail"
                         required
                     />
                 </RegistrationFormLabel>
@@ -72,6 +74,7 @@ export default function Registration() {
                         name="password"
                         value={password}
                         onChange={handleChange}
+                        placeholder="Your password"
                         required
                     />
                 </RegistrationFormLabel>

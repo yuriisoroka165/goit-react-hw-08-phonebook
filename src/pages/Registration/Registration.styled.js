@@ -1,20 +1,26 @@
 import styled from "styled-components";
 
 export const RegistrationPageContainer = styled.div`
-    width: 500px;
+    width: 300px;
+    padding: 20px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 40px;
+    border: 1px solid var(--global-gray-color);
+    border-radius: 5px;
 `;
 
 export const RegistrationPageHeader = styled.h1`
-    margin-bottom: 60px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
 `;
 
 export const RegistrationForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-bottom: 40px;
 `;
 
 export const RegistrationFormLabel = styled.label`
@@ -29,7 +35,6 @@ export const RegistrationFormLabel = styled.label`
 export const RegistrationFormInput = styled.input`
     padding-left: 10px;
     padding-right: 10px;
-    width: 350px;
     height: 30px;
     border: none;
     border-radius: 5px;

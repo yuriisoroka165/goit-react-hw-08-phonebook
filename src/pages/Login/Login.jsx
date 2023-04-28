@@ -36,7 +36,7 @@ export default function Login() {
 
     return (
         <LoginPageContainer>
-            <LoginPageHeader>Login page</LoginPageHeader>
+            <LoginPageHeader>Login</LoginPageHeader>
             <LoginForm onSubmit={handleSubmit} autoComplete="off">
                 <LoginFormLabel htmlFor="email">
                     E-mail:
@@ -46,6 +46,7 @@ export default function Login() {
                         name="email"
                         value={email}
                         onChange={handleChange}
+                        placeholder="Your e-mail"
                         required
                     />
                 </LoginFormLabel>
@@ -57,6 +58,7 @@ export default function Login() {
                         name="password"
                         value={password}
                         onChange={handleChange}
+                        placeholder="Your password"
                         required
                     />
                 </LoginFormLabel>
