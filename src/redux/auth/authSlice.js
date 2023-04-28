@@ -11,52 +11,57 @@ const initialState = {
     user: { name: null, email: null },
     token: null,
     isAuthorized: false,
-    isLoading: false,
+    isRefreshing: false,
     error: null,
 };
 
-const hadlePending = state => {
-    state.isLoading = true;
-};
+// const hadlePending = state => {
+//     state.isRefreshing = true;
+// };
 
-const handleRejected = (state, action) => {
-    state.isLoading = false;
-    state.error = action.payload;
-};
+// const handleRejected = (state, action) => {
+//     state.isRefreshing = false;
+//     state.error = action.payload;
+// };
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     extraReducers: {
-        [registration.pending]: hadlePending,
+        // [registration.pending]: hadlePending,
         [registration.fulfilled](state, action) {
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isAuthorized = true;
         },
-        [registration.rejected]: handleRejected,
-        [login.pending]: hadlePending,
+        // [registration.rejected]: handleRejected,
+        // [login.pending]: hadlePending,
         [login.fulfilled](state, action) {
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isAuthorized = true;
         },
-        [login.rejected]: handleRejected,
-        [logout.pending]: hadlePending,
+        // [login.rejected]: handleRejected,
+        // [logout.pending]: hadlePending,
         [logout.fulfilled](state) {
             state.user = { name: null, email: null };
             state.token = null;
             state.isAuthorized = false;
-            state.isLoading = false;
+            state.isRefreshing = false;
             state.error = null;
         },
-        [logout.rejected]: handleRejected,
-        [refreshCurrentUser.pending]: hadlePending,
+        // [logout.rejected]: handleRejected,
+        [refreshCurrentUser.pending](state) {
+            state.isRefreshing = true;
+        },
         [refreshCurrentUser.fulfilled](state, action) {
             state.user = action.payload;
             state.isAuthorized = true;
+            state.isRefreshing = false;
         },
-        [refreshCurrentUser.rejected]: handleRejected,
+        [refreshCurrentUser.rejected](state) {
+            state.isRefreshing = false;
+        },
     },
 });
 

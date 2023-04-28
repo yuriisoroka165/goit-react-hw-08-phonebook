@@ -14,11 +14,9 @@ export const Navigation = () => {
             <Header>
                 <nav>
                     <Link to="/">Home</Link>
-                    <Link to="/contacts">Contacts</Link>
+                    {isAuthorized && <Link to="/contacts">Contacts</Link>}
                 </nav>
                 {isAuthorized ? <UserMenu /> : <AuthNav />}
-                {/* <AuthNav />
-                <UserMenu /> */}
             </Header>
             <Container>
                 <main>

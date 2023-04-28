@@ -1,7 +1,7 @@
 import { FcContacts } from "react-icons/fc";
 
 import { Container } from "./Home.styled";
-import { iconsSize } from "constants/iconsSize";
+import { iconsSize } from "../../constants/iconsSize";
 
 export default function Home() {
     return (

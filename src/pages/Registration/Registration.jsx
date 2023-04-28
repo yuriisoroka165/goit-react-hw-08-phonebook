@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { registration } from "../redux/auth/authOperations";
+import { registration } from "../../redux/auth/authOperations";
 import {
     RegistrationPageContainer,
     RegistrationPageHeader,
