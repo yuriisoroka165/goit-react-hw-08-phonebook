@@ -1,11 +1,14 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { AuthNav } from "../AuthNav/AuthNav";
 import { UserMenu } from "components/UserMenu/UserMenu";
+import { selectIsAuthorized } from "../../redux/auth/authSelectors";
 import { Container, Header, Link, Loader } from "./Navigation.styled";
 
 export const Navigation = () => {
+    const isAuthorized = useSelector(selectIsAuthorized);
     return (
         <>
             <Header>
@@ -13,8 +16,9 @@ export const Navigation = () => {
                     <Link to="/">Home</Link>
                     <Link to="/contacts">Contacts</Link>
                 </nav>
-                <AuthNav />
-                <UserMenu />
+                {isAuthorized ? <UserMenu /> : <AuthNav />}
+                {/* <AuthNav />
+                <UserMenu /> */}
             </Header>
             <Container>
                 <main>
